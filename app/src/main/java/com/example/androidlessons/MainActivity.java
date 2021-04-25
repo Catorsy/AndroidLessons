@@ -12,16 +12,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout_2);
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Привет!", Toast.LENGTH_LONG).show();
-            }
-        });
-    }//commit///
-    //TODO
-    //FIXME
+//        Button button = findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Привет!", Toast.LENGTH_LONG).show();
+//            }
+//        });
+//    }//commit///
+//    //TODO
+        //FIXME
+    }
 }
