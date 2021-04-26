@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="398dp"
+        android:layout_height="90dp"
+        android:background="#D1D0D0"
+        android:ems="20"
+        android:gravity="center|center_horizontal"
+        android:hint="Введите что-нибудь."
+        android:inputType="text"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="398dp"
+        android:layout_height="90dp"
+        android:background="#C8C2C2"
+        android:ems="15"
+        android:gravity="center|center_horizontal"
+        android:hint="Введите Ваш e-mail."
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="398dp"
+        android:layout_height="90dp"
+        android:background="#B3B0B0"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:inputType="textPersonName"
+        android:text="Your name?"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="398dp"
+        android:layout_height="90dp"
+        android:background="#8F8E8E"
+        android:ems="10"
+        android:gravity="fill_vertical"
+        android:hint="Your pass"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="398dp"
+        android:layout_height="90dp"
+        android:background="#777373"
+        android:ems="10"
+        android:hint="Your phonenumber"
+        android:inputType="number"
+        android:textColor="#F6F5F5"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="398dp"
+        android:layout_height="90dp"
+        android:background="#504F4F"
+        android:ems="10"
+        android:hint="Your time"
+        android:inputType="time"
+        android:textColor="#F6F5F5"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="398dp"
+        android:layout_height="90dp"
+        android:background="#373636"
+        android:ems="10"
+        android:hint="Your date"
+        android:inputType="date"
+        android:textColor="#F6F5F5"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
