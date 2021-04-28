@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/leaf_176722_640"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
@@ -42,10 +42,9 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:background="#D2EFA7"
         android:hint="Здесь будет экранчик"
         android:textSize="30dp"
-
-        android:background="#D2EFA7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
