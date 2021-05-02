@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLessons">
+        <activity android:name=".SecondActivity" >
+<!--            android:configChanges="orientation|screenSize"-->
+<!--            тут говорим, когда окнфигурация экрана должна поменяться. Пишем, когда ориентейшн и скринсайз.
+Данные не пропадут при перертоне!! Но: это значит, что при перевертоне мы не перестраиваем активити, мы просто растягивает лайаут.
+Но если хотим разные лайауты, оно не прокатит.-->
+        <!-- android:screenOrientation="portrait" --> </activity> <!-- запрещаем поворачивать экран. -->
+<!--        выше пустой тег!! надо закрывать так:-->
+<!--        /> и всё.-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
