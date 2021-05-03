@@ -1,20 +1,17 @@
 package com.example.androidlessons;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import java.io.Serializable;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView textView;
     private Calculations calculations;
+    private static final String SAVE = "SAVE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +29,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
         Button button4 = findViewById(R.id.button4);
-        Button button5 = findViewById(R.id.button6);
-        Button button6 = findViewById(R.id.button7);
-        Button button7 = findViewById(R.id.button9);
-        Button button8 = findViewById(R.id.button10);
-        Button button9 = findViewById(R.id.button11);
+        Button button5 = findViewById(R.id.button5);
+        Button button6 = findViewById(R.id.button6);
+        Button button7 = findViewById(R.id.button7);
+        Button button8 = findViewById(R.id.button8);
+        Button button9 = findViewById(R.id.button9);
         Button button0 = findViewById(R.id.button13);
         Button buttonClearAll = findViewById(R.id.button16);
         Button buttonErase = findViewById(R.id.button17);
-        Button buttonPlus = findViewById(R.id.button5);
-        Button buttonMinus = findViewById(R.id.button8);
+        Button buttonPlus = findViewById(R.id.button20);
+        Button buttonMinus = findViewById(R.id.button21);
         Button buttonEquals = findViewById(R.id.button18);
         Button buttonMulti = findViewById(R.id.button15);
         Button buttonDiv = findViewById(R.id.button12);
@@ -74,61 +71,77 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonMinus.setOnClickListener(v -> {
             calculations.setOperator("-");
-            setNumber1andClear();
+            try {
+                setNumber1andClear();
+            } catch (NumberFormatException e) {
+            }
             textView.setHint(calculations.getNumber1() + "-");
         });
         buttonMulti.setOnClickListener(v -> {
             calculations.setOperator("*");
-            setNumber1andClear();
+            try {
+                setNumber1andClear();
+            } catch (NumberFormatException e) {
+            }
             textView.setHint(calculations.getNumber1() + "*");
         });
         buttonDiv.setOnClickListener(v -> {
             calculations.setOperator(":");
-            setNumber1andClear();
+            try {
+                setNumber1andClear();
+            } catch (NumberFormatException e) {
+            }
             textView.setHint(calculations.getNumber1() + ":");
         });
 
         buttonEquals.setOnClickListener(v -> {
-            switch (calculations.getOperator()) {
-                case "-":
-                    calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
-                    calculations.setResult(calculations.getNumber1() - calculations.getNumber2());
-                    textView.setText(String.format(String.valueOf(calculations.getResult())));
-                    break;
-                case "+":
-                    calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
-                    calculations.setResult(calculations.getNumber1() + calculations.getNumber2());
-                    textView.setText(String.format(String.valueOf(calculations.getResult())));
-                    break;
-                case "*":
-                    calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
-                    calculations.setResult(calculations.getNumber1() * calculations.getNumber2());
-                    textView.setText(String.format(String.valueOf(calculations.getResult())));
-                    break;
-                case ":":
-                    calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
-                    try {
-                        calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
+            try {
+                switch (calculations.getOperator()) {
+                    case "-":
+                        calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
+                        calculations.setResult(calculations.getNumber1() - calculations.getNumber2());
                         textView.setText(String.format(String.valueOf(calculations.getResult())));
                         break;
-                    } catch (ArithmeticException e) {
-                        clearField();
-                        textView.setHint("Нельзя делить на ноль!");
-                    }
+                    case "+":
+                        calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
+                        calculations.setResult(calculations.getNumber1() + calculations.getNumber2());
+                        textView.setText(String.format(String.valueOf(calculations.getResult())));
+                        break;
+                    case "*":
+                        calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
+                        calculations.setResult(calculations.getNumber1() * calculations.getNumber2());
+                        textView.setText(String.format(String.valueOf(calculations.getResult())));
+                        break;
+                    case ":":
+                        calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
+                        try {
+                            calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
+                            textView.setText(String.format(String.valueOf(calculations.getResult())));
+                            break;
+                        } catch (ArithmeticException e) {
+                            clearField();
+                            textView.setHint("Дурак, что ли, на ноль делить?");
+                        }
+                }
+            } catch (NullPointerException e) {
+                clearField();
+                textView.setHint("Рано нажимать равно. Введите два числа.");
             }
         });
     }
 
     public void button1_onClick(View view) {
         textView.setText(textView.getText() + "1");
-        //textView.setText(String.format(textView.getText() +  Locale.getDefault(), "%d", buttom1));
     }
 
     //это для способа implements View.OnClickListener
     @Override
     public void onClick(View v) {
         calculations.setOperator("+");
-        setNumber1andClear();
+        try {
+            setNumber1andClear();
+        } catch (NumberFormatException e) {
+        }
         textView.setHint(calculations.getNumber1() + "+");
     }
 
@@ -143,5 +156,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setNumber1andClear() {
         calculations.setNumber1(Integer.parseInt(String.valueOf(textView.getText())));
         clearField();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(SAVE, calculations);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        calculations = (Calculations) savedInstanceState.getSerializable(SAVE);
+        textView.setHint(String.format(String.valueOf(calculations.getResult())));
+        //TODO как здесь сделать проверку на ноль? != null и .isEmpty() не отзываются.
+        //обходной путь: можно добавить переменную "последнее значение" и добавить кучу строк в код, но это мне не нравится...
+        //в случае успешной проверки на ноль нам надо-то добавить только здесь пару строк, чтобы выводить на экран корректные данные.
     }
 }
