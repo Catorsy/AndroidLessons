@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="#66D2EFA7"
-        android:hint="Калькулятор готов к работе"
+        android:hint="Введите число"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
