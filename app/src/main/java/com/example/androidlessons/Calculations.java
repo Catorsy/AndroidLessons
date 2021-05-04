@@ -8,12 +8,14 @@ public class Calculations implements Serializable {
     private int number1;
     private int number2;
     private int result;
+    private int lastNumber;
     String operator;
 
     public Calculations() {
-        this.number1 = number1;
-        this.number2 = number2;
-        this.result = result;
+        number1 = 0;
+        number2 = 0;
+        result = 0;
+        lastNumber = 0;
         this.operator = operator;
     }
 
@@ -47,5 +49,13 @@ public class Calculations implements Serializable {
 
     public void setOperator(String operator) {
         this.operator = operator;
+    }
+
+    public int getLastNumber() {
+        return lastNumber;
+    }
+
+    public void setLastNumber(int lastNumber) {
+        this.lastNumber = lastNumber;
     }
 }

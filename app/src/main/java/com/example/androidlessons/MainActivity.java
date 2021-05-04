@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             calculations.setNumber1(0);
             calculations.setNumber2(0);
             calculations.setResult(0);
+            calculations.setLastNumber(0);
         });
         buttonErase.setOnClickListener(v -> {
             String memory = textView.getText().toString();
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonMinus.setOnClickListener(v -> {
             calculations.setOperator("-");
             try {
+                calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
+                ///!!! Важный вопрос. Это одна строка, но она встречается в нескольких местах. Надо такое выносить в метод или нет?
                 setNumber1andClear();
             } catch (NumberFormatException e) {
             }
@@ -85,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonMulti.setOnClickListener(v -> {
             calculations.setOperator("*");
             try {
+                calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                 setNumber1andClear();
             } catch (NumberFormatException e) {
             }
@@ -93,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDiv.setOnClickListener(v -> {
             calculations.setOperator(":");
             try {
+                calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                 setNumber1andClear();
             } catch (NumberFormatException e) {
             }
@@ -106,29 +111,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
                         calculations.setResult(calculations.getNumber1() - calculations.getNumber2());
                         textView.setText(String.format(String.valueOf(calculations.getResult())));
+                        calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                         break;
                     case "+":
                         calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
                         calculations.setResult(calculations.getNumber1() + calculations.getNumber2());
                         textView.setText(String.format(String.valueOf(calculations.getResult())));
+                        calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                         break;
                     case "*":
                         calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
                         calculations.setResult(calculations.getNumber1() * calculations.getNumber2());
                         textView.setText(String.format(String.valueOf(calculations.getResult())));
+                        calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                         break;
                     case ":":
                         calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
                         try {
                             calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
                             textView.setText(String.format(String.valueOf(calculations.getResult())));
+                            calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                             break;
                         } catch (ArithmeticException e) {
                             clearField();
                             textView.setHint("Дурак, что ли, на ноль делить?");
                         }
                 }
-            } catch (NullPointerException e) {
+            } catch (NullPointerException | NumberFormatException e) {
                 clearField();
                 textView.setHint("Рано нажимать равно. Введите два числа.");
             }
@@ -144,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         calculations.setOperator("+");
         try {
+            calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
             setNumber1andClear();
         } catch (NumberFormatException e) {
         }
@@ -170,9 +180,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         calculations = (Calculations) savedInstanceState.getSerializable(SAVE);
-        textView.setHint(String.format(String.valueOf(calculations.getResult())));
-        //TODO как здесь сделать проверку на ноль? != null и .isEmpty() не отзываются.
-        //обходной путь: можно добавить переменную "последнее значение" и добавить кучу строк в код, но это мне не нравится...
-        //в случае успешной проверки на ноль нам надо-то добавить только здесь пару строк, чтобы выводить на экран корректные данные.
+        textView.setHint(String.format(String.valueOf(calculations.getLastNumber())));
+        }
     }
-}
