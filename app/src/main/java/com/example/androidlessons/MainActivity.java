@@ -58,7 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button9.setOnClickListener(v -> textView.setText(textView.getText() + "9"));
         button0.setOnClickListener(v -> textView.setText(textView.getText() + "0"));
 
-        buttonClearAll.setOnClickListener(v -> clearField());
+        buttonClearAll.setOnClickListener(v -> {
+            clearField();
+            calculations.setNumber1(0);
+            calculations.setNumber2(0);
+            calculations.setResult(0);
+        });
         buttonErase.setOnClickListener(v -> {
             String memory = textView.getText().toString();
             if (!memory.isEmpty()) {
@@ -146,11 +151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void clearField() {
-        String memory = textView.getText().toString();
-        memory = memory.substring(0, memory.length() - memory.length());
-        textView.setText(memory);
+        textView.setText("");
         textView.setHint("Введите число");
-        //TODO костыль? Велосипед? Какой хороший способ очистить поле? Задать пробел в поле в данном случае - не вариант.
     }
 
     private void setNumber1andClear() {
