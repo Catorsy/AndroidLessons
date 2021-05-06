@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (!memory.isEmpty()) {
                 memory = memory.substring(0, memory.length() - 1);
                 textView.setText(memory);
-                textView.setHint("Введите число");
+                textView.setHint(R.string.writeYourNumber);
             }
         });
         buttonPlus.setOnClickListener(this);
@@ -134,12 +134,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
                         } catch (ArithmeticException e) {
                             clearField();
-                            textView.setHint("Дурак, что ли, на ноль делить?");
+                            textView.setHint(R.string.Dividir);
                         }
                 }
             } catch (NullPointerException | NumberFormatException e) {
                 clearField();
-                textView.setHint("Рано нажимать равно. Введите два числа.");
+                textView.setHint(R.string.tooEarly);
             }
         });
     }
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void clearField() {
         textView.setText("");
-        textView.setHint("Введите число");
+        textView.setHint(R.string.writeYourNumber);
     }
 
     private void setNumber1andClear() {

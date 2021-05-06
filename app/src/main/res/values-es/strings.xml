@@ -21,4 +21,6 @@
     <string name="C">C</string>
     <string name="back">Borrar</string>
     <string name="writeYourNumber">Introduzca el número</string>
+    <string name="Dividir">¿Eres un tonto? Es prohibido dividir por cero.</string>
+    <string name="tooEarly">Es muy temprano presionar "result". Introduzca dos numeros.</string>
 </resources>
