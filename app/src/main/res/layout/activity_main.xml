@@ -21,6 +21,8 @@
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    строка rippleColor не выносится в стиль, решение не вижу, что ей не хватает?..-->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
         style="@style/GreenButtons"
