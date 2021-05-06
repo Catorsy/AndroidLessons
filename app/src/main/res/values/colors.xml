@@ -12,4 +12,5 @@
     <color name="backTextLightGreen">#66D2EFA7</color>
     <color name="rippleColor">#0E5302</color>
     <color name="redBright">#A81212</color>
+    <color name="lightYellow">#D2EFA7</color>
 </resources>
