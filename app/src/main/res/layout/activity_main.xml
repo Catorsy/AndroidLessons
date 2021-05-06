@@ -38,11 +38,9 @@
 
     <TextView
         android:id="@+id/textView"
+        style="@style/Screen"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/textVievHeight"
-        android:background="@color/backTextLightGreen"
         android:hint="@string/writeYourNumber"
-        android:textSize="@dimen/textSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

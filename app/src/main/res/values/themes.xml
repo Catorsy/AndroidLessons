@@ -32,4 +32,10 @@
         <item name="android:background">@drawable/leaf_176722_640</item>
     </style>
 
+    <style name="Screen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:layout_height">@dimen/textVievHeight</item>
+        <item name="android:background">@color/backTextLightGreen</item>
+        <item name="android:textSize">@dimen/textSize</item>
+    </style>
+
 </resources>
