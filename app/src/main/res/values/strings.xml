@@ -16,4 +16,8 @@
     <string name="dot">.</string>
     <string name="multiple">*</string>
     <string name="is">=</string>
+    <string name="typeOfFont">casual</string>
+    <string name="C">C</string>
+    <string name="back">Back</string>
+    <string name="writeYourNumber">Введите число</string>
 </resources>
