@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="254dp"
         android:text="@string/_3"
-        app:layout_constraintEnd_toStartOf="@+id/button20"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPlus"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/button1" />
 
     <TextView
         android:id="@+id/textView"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/button1"
         style="@style/GreenButtons"
         app:rippleColor="@color/rippleColor"
         android:onClick="button1_onClick"
@@ -59,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button20"
+        android:id="@+id/buttonPlus"
         style="@style/GreenButtons"
         app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
@@ -85,7 +85,7 @@
         app:layout_constraintVertical_bias="0.02" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button21"
+        android:id="@+id/buttonMinus"
         style="@style/GreenButtons"
         app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button20"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlus"
         app:layout_constraintVertical_bias="0.02" />
 
     <com.google.android.material.button.MaterialButton
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
         app:layout_constraintVertical_bias="0.02" />
 
     <com.google.android.material.button.MaterialButton
@@ -120,7 +120,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_6"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button21"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMinus"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button3"
@@ -158,13 +158,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:text="@string/_9"
-        app:layout_constraintEnd_toStartOf="@+id/button12"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDiv"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button8"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button12"
+        android:id="@+id/buttonDiv"
         style="@style/GreenButtons"
         app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
@@ -177,7 +177,7 @@
         app:layout_constraintStart_toEndOf="@+id/button9" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button13"
+        android:id="@+id/buttonNull"
         style="@style/GreenButtons"
         app:rippleColor="@color/rippleColor"
         android:layout_width="180dp"
@@ -198,13 +198,13 @@
         android:layout_marginTop="9dp"
         android:text="@string/dot"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/button15"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMulti"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button13"
+        app:layout_constraintStart_toEndOf="@+id/buttonNull"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button15"
+        android:id="@+id/buttonMulti"
         style="@style/GreenButtons"
         app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
@@ -214,21 +214,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button14"
-        app:layout_constraintTop_toBottomOf="@+id/button12" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonDiv" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/GreenOperationButtons"
-        android:id="@+id/button16"
+        android:id="@+id/buttonC"
         app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="@string/C"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button17"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonBack"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button17"
+        android:id="@+id/buttonBack"
         style="@style/GreenOperationButtons"
         app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
@@ -240,7 +240,7 @@
         app:layout_constraintEnd_toEndOf="@+id/button3" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button18"
+        android:id="@+id/buttonEquals"
         style="@style/GreenOperationButtons"
         app:rippleColor="@color/redBright"
         android:layout_width="@dimen/button_width"
@@ -249,6 +249,6 @@
         android:layout_marginEnd="16dp"
         android:text="@string/is"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button15" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMulti" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

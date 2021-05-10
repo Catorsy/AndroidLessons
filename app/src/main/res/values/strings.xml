@@ -22,4 +22,5 @@
     <string name="writeYourNumber">Введите число</string>
     <string name="Dividir">Дурак, что ли, на ноль делить?</string>
     <string name="tooEarly">Рано нажимать равно. Введите два числа.</string>
+    <string name="Error">Ошибка. Попробуйте ещё раз.</string>
 </resources>

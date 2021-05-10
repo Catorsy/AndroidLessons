@@ -2,6 +2,7 @@ package com.example.androidlessons;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button7 = findViewById(R.id.button7);
         Button button8 = findViewById(R.id.button8);
         Button button9 = findViewById(R.id.button9);
-        Button button0 = findViewById(R.id.button13);
-        Button buttonClearAll = findViewById(R.id.button16);
-        Button buttonErase = findViewById(R.id.button17);
-        Button buttonPlus = findViewById(R.id.button20);
-        Button buttonMinus = findViewById(R.id.button21);
-        Button buttonEquals = findViewById(R.id.button18);
-        Button buttonMulti = findViewById(R.id.button15);
-        Button buttonDiv = findViewById(R.id.button12);
+        Button button0 = findViewById(R.id.buttonNull);
+        Button buttonClearAll = findViewById(R.id.buttonC);
+        Button buttonErase = findViewById(R.id.buttonBack);
+        Button buttonPlus = findViewById(R.id.buttonPlus);
+        Button buttonMinus = findViewById(R.id.buttonMinus);
+        Button buttonEquals = findViewById(R.id.buttonEquals);
+        Button buttonMulti = findViewById(R.id.buttonMulti);
+        Button buttonDiv = findViewById(R.id.buttonDiv);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,30 +76,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonPlus.setOnClickListener(this);
 
         buttonMinus.setOnClickListener(v -> {
-            calculations.setOperator("-");
+            calculations.setOperator(getString(R.string.minus));
             try {
                 calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                 ///!!! Важный вопрос. Это одна строка, но она встречается в нескольких местах. Надо такое выносить в метод или нет?
                 setNumber1andClear();
             } catch (NumberFormatException e) {
+                clearField();
+                textView.setHint(R.string.Error);
             }
             textView.setHint(calculations.getNumber1() + "-");
         });
         buttonMulti.setOnClickListener(v -> {
-            calculations.setOperator("*");
+            calculations.setOperator(getString(R.string.multiple));
             try {
                 calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                 setNumber1andClear();
             } catch (NumberFormatException e) {
+                clearField();
+                textView.setHint(R.string.Error);
             }
             textView.setHint(calculations.getNumber1() + "*");
         });
         buttonDiv.setOnClickListener(v -> {
-            calculations.setOperator(":");
+            calculations.setOperator(getString(R.string.divide));
             try {
                 calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                 setNumber1andClear();
             } catch (NumberFormatException e) {
+                clearField();
+                textView.setHint(R.string.Error);
             }
             textView.setHint(calculations.getNumber1() + ":");
         });
@@ -150,11 +157,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //это для способа implements View.OnClickListener
     @Override
     public void onClick(View v) {
-        calculations.setOperator("+");
+        calculations.setOperator(getString(R.string.plus));
         try {
             calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
             setNumber1andClear();
         } catch (NumberFormatException e) {
+            clearField();
+            textView.setHint(R.string.Error);
         }
         textView.setHint(calculations.getNumber1() + "+");
     }
@@ -180,5 +189,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onRestoreInstanceState(savedInstanceState);
         calculations = (Calculations) savedInstanceState.getSerializable(SAVE);
         textView.setHint(String.format(String.valueOf(calculations.getLastNumber())));
-        }
     }
+}
