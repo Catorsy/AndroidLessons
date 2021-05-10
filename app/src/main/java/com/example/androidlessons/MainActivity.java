@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-//Я заглушка, не надо меня пока смотреть. Планирую превратиться в ДЗ до четверга включительно.
+//Я - заглушка, не надо меня пока смотреть. Планирую превратиться в ДЗ до четверга включительно.
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView textView;
