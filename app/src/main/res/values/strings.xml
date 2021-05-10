@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AndroidLessons</string>
+    <string name="account">Настройки</string>
+    <string name="greetings">Поздравления</string>
+    <string name="your_name">Ваше имя</string>
 </resources>
