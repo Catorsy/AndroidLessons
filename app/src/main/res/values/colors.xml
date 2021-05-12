@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="backTintLightGreen">#80D2EFA7</color>
+    <color name="buttonTextGreen">#0E5302</color>
+    <color name="backTextLightGreen">#66D2EFA7</color>
+    <color name="rippleColor">#0E5302</color>
+    <color name="redBright">#A81212</color>
+    <color name="lightYellow">#D2EFA7</color>
+    <color name="lightGrey">#66ADB5AC</color>
+
+    #66ADB5AC
 </resources>

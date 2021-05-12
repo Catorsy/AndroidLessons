@@ -9,7 +9,7 @@ public class Calculations implements Serializable {
     private int number2;
     private int result;
     private int lastNumber;
-    String operator;
+    private String operator;
 
     public Calculations() {
         number1 = 0;

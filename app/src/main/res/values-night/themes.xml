@@ -13,4 +13,35 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="GreenButtons" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:backgroundTint">#33D8E3D7</item>
+        <item name="android:fontFamily">@font/scratched</item>
+        <item name="android:textColor">#FF5F349C</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#FF5F349C</item>
+        <item name="android:shadowRadius">14</item>
+    </style>
+
+    <style name="GreenOperationButtons" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:backgroundTint">#33D8E3D7</item>
+        <item name="android:fontFamily">@font/scratched</item>
+        <item name="android:textColor">#FF5F349C</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#FF5F349C</item>
+        <item name="android:shadowRadius">14</item>
+    </style>
+
+    <style name="GreenMainScreen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@drawable/leaf2</item>
+    </style>
+
+    <style name="Screen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:layout_height">@dimen/textVievHeight</item>
+        <item name="android:background">#66000000</item>
+        <item name="android:textSize">@dimen/textSize</item>
+    </style>
+
 </resources>

@@ -2,91 +2,81 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/GreenMainScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/leaf_176722_640"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button3"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="254dp"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_3"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/button20"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPlus"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+<!--    строка rippleColor не выносится в стиль, решение не вижу, что ей не хватает?..-->
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_2"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/button1" />
 
     <TextView
         android:id="@+id/textView"
+        style="@style/Screen"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#66D2EFA7"
-        android:hint="Введите число"
-        android:textSize="30dp"
+        android:hint="@string/writeYourNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button1"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:onClick="button1_onClick"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_1"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/button2"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button20"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonPlus"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/plus"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button3" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button5"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_5"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintHorizontal_bias="0.5"
@@ -94,197 +84,171 @@
         app:layout_constraintTop_toBottomOf="@+id/button3"
         app:layout_constraintVertical_bias="0.02" />
 
-    <Button
-        android:id="@+id/button21"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonMinus"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/minus"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button20"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlus"
         app:layout_constraintVertical_bias="0.02" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button4"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_4"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
         app:layout_constraintVertical_bias="0.02" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button6"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_6"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button21"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMinus"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button3"
         app:layout_constraintVertical_bias="0.02" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button7"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_7"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/button8"
         app:layout_constraintEnd_toStartOf="@+id/button8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button8"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_8"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/button9"
         app:layout_constraintEnd_toStartOf="@+id/button9"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button7" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button9"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_9"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/button12"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDiv"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button8"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
-    <Button
-        android:id="@+id/button12"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDiv"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/divide"
-        android:textColor="#0E5302"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button9" />
 
-    <Button
-        android:id="@+id/button13"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonNull"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/_0"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/button14"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button14"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/dot"
-        android:textColor="#0E5302"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/button15"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMulti"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button13"
+        app:layout_constraintStart_toEndOf="@+id/buttonNull"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
 
-    <Button
-        android:id="@+id/button15"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonMulti"
+        style="@style/GreenButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
-        android:backgroundTint="#80D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/multiple"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button14"
-        app:layout_constraintTop_toBottomOf="@+id/button12" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonDiv" />
 
-    <Button
-        android:id="@+id/button16"
+    <com.google.android.material.button.MaterialButton
+        style="@style/GreenOperationButtons"
+        android:id="@+id/buttonC"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#D2EFA7"
-        android:fontFamily="casual"
-        android:text="C"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button17"
+        android:text="@string/C"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonBack"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/button17"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonBack"
+        style="@style/GreenOperationButtons"
+        app:rippleColor="@color/rippleColor"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="9dp"
-        android:backgroundTint="#D2EFA7"
-        android:fontFamily="casual"
-        android:text="Back"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
+        android:text="@string/back"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="@+id/button3" />
 
-    <Button
-        android:id="@+id/button18"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonEquals"
+        style="@style/GreenOperationButtons"
+        app:rippleColor="@color/redBright"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#D2EFA7"
-        android:fontFamily="casual"
         android:text="@string/is"
-        android:textColor="#0E5302"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button15" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMulti" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

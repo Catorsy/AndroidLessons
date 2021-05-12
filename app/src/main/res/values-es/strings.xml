@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidLessons</string>
     <string name="_3">3</string>
@@ -18,9 +19,9 @@
     <string name="is">=</string>
     <string name="typeOfFont">casual</string>
     <string name="C">C</string>
-    <string name="back">Back</string>
-    <string name="writeYourNumber">Введите число</string>
-    <string name="Dividir">Дурак, что ли, на ноль делить?</string>
-    <string name="tooEarly">Рано нажимать равно. Введите два числа.</string>
-    <string name="Error">Ошибка. Попробуйте ещё раз.</string>
+    <string name="back">Borrar</string>
+    <string name="writeYourNumber">Introduzca el número</string>
+    <string name="Dividir">¿Eres un tonto? Es prohibido dividir por cero.</string>
+    <string name="tooEarly">Es muy temprano presionar "result". Introduzca dos numeros.</string>
+    <string name="Error">Error. Intentar otra vez.</string>
 </resources>
