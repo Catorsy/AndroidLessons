@@ -28,4 +28,5 @@
     <string name="dayTheme">Estilo del dia</string>
     <string name="nightTheme">Estilo de noche</string>
     <string name="ok">Confirmar</string>
+    <string name="defaultStyle">Estilo por defecto</string>
 </resources>

@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, Memory {
     private TextView textView;
-    private TextView textView2;
     private Calculations calculations;
     private static final String SAVE = "SAVE";
     private static final int REQUEST_CODE = 12;
@@ -23,22 +22,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //setTheme(R.style.NightButtons);
-        //да, здесь можно поменять тему
 
-        if(savedInstanceState != null) {
-            switch (myStyle){
+        setTheme(R.style.Theme_Design_NoActionBar);
+        if (savedInstanceState != null) {
+            switch (myStyle) {
                 case 1:
                     setTheme(R.style.DayButtons);
                     break;
                 case 2:
                     setTheme(R.style.NightButtons);
                     break;
-//                case 0: //проверено, что так можно сменить тему, и активити пересоздается
-                   // setTheme(R.style.DayButtons);
+                case 3:
+                    setTheme(R.style.Theme_AndroidLessons);
+                    setTheme(R.style.Theme_Design_NoActionBar);
             }
         }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         calculations = new Calculations();
         textView = findViewById(R.id.textView);
-        textView2 = findViewById(R.id.textView2);
-        textView2.setText("стиль: " + myStyle);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
         Button button4 = findViewById(R.id.button4);
@@ -70,12 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonDiv = findViewById(R.id.buttonDiv);
         Button changeStyle = findViewById(R.id.buttonChange);
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView.setText(textView.getText() + "2");
-            }
-        });
+        button2.setOnClickListener(v -> textView.setText(textView.getText() + "2"));
         button3.setOnClickListener(v -> textView.setText(textView.getText() + "3"));
         button4.setOnClickListener(v -> textView.setText(textView.getText() + "4"));
         button5.setOnClickListener(v -> textView.setText(textView.getText() + "5"));
@@ -160,10 +151,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case ":":
                         calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
-                            calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
-                            textView.setText(String.format(String.valueOf(calculations.getResult())));
-                            calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
-                            break;
+                        calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
+                        textView.setText(String.format(String.valueOf(calculations.getResult())));
+                        calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
+                        break;
                 }
             } catch (NullPointerException e) {
                 clearField();
@@ -232,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (resultCode == Activity.RESULT_OK) {
-            if(data != null){
+            if (data != null) {
                 Bundle myData = data.getExtras();
                 myStyle = myData.getInt(STYLE);
                 recreate();
