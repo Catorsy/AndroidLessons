@@ -14,6 +14,7 @@ public class SecondActivity extends AppCompatActivity implements Memory {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.NightButtons);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 

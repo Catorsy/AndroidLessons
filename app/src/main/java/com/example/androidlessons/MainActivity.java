@@ -2,6 +2,7 @@ package com.example.androidlessons;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,21 +18,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Calculations calculations;
     private static final String SAVE = "SAVE";
     private static final int REQUEST_CODE = 12;
-    private int myStyle;
+    private int myStyle = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        //setTheme(R.style.NightButtons);
+        //да, здесь можно поменять тему
 
         if(savedInstanceState != null) {
             myStyle = getIntent().getExtras().getInt(STYLE);
             switch (myStyle){
                 case 1:
-                    setTheme(R.style.GreenMainScreen);
+                    setTheme(R.style.DayButtons);
                 case 2:
-                    setTheme(R.style.Screen);
+                    setTheme(R.style.NightButtons);
             }
         }
+
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
     }
@@ -172,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         changeStyle.setOnClickListener(v -> {
             Intent intentRunChangeStyle = new Intent(this, SecondActivity.class);
-            startActivity(intentRunChangeStyle);
+            startActivityForResult(intentRunChangeStyle, REQUEST_CODE);
         });
     }
 
