@@ -3,6 +3,7 @@ package com.example.androidlessons;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,14 +11,27 @@ import android.widget.TextView;
 
 //Я - заглушка, не надо меня пока смотреть. Планирую превратиться в ДЗ до четверга включительно.
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, Memory {
     private TextView textView;
+    private TextView textView2;
     private Calculations calculations;
     private static final String SAVE = "SAVE";
+    private static final int REQUEST_CODE = 12;
+    private int myStyle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(savedInstanceState != null) {
+            myStyle = getIntent().getExtras().getInt(STYLE);
+            switch (myStyle){
+                case 1:
+                    setTheme(R.style.GreenMainScreen);
+                case 2:
+                    setTheme(R.style.Screen);
+            }
+        }
         setContentView(R.layout.activity_main);
         initView();
     }
@@ -28,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         calculations = new Calculations();
         textView = findViewById(R.id.textView);
+        textView2 = findViewById(R.id.textView2);
+        textView2.setText("стиль: " + myStyle);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
         Button button4 = findViewById(R.id.button4);
@@ -44,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonEquals = findViewById(R.id.buttonEquals);
         Button buttonMulti = findViewById(R.id.buttonMulti);
         Button buttonDiv = findViewById(R.id.buttonDiv);
+        Button changeStyle = findViewById(R.id.buttonChange);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,20 +152,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case ":":
                         calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
-                        try {
                             calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
                             textView.setText(String.format(String.valueOf(calculations.getResult())));
                             calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
                             break;
-                        } catch (ArithmeticException e) {
-                            clearField();
-                            textView.setHint(R.string.Dividir);
-                        }
                 }
-            } catch (NullPointerException | NumberFormatException e) {
+            } catch (NullPointerException e) {
                 clearField();
                 textView.setHint(R.string.tooEarly);
+            } catch (NumberFormatException e) {
+                clearField();
+                textView.setHint(R.string.Error);
+            } catch (ArithmeticException e) {
+                clearField();
+                textView.setHint(R.string.Dividir);
             }
+
+        });
+
+        changeStyle.setOnClickListener(v -> {
+            Intent intentRunChangeStyle = new Intent(this, SecondActivity.class);
+            startActivity(intentRunChangeStyle);
         });
     }
 

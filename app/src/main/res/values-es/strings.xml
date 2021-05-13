@@ -24,4 +24,8 @@
     <string name="Dividir">¿Eres un tonto? Es prohibido dividir por cero.</string>
     <string name="tooEarly">Es muy temprano presionar "result". Introduzca dos numeros.</string>
     <string name="Error">Error. Intentar otra vez.</string>
+    <string name="changeStyle">Cambiar estilo</string>
+    <string name="dayTheme">Estilo del dia</string>
+    <string name="nightTheme">Estilo de noche</string>
+    <string name="ok">Confirmar</string>
 </resources>
