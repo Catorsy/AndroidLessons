@@ -29,6 +29,7 @@ public class SecondActivity extends AppCompatActivity implements Memory {
         buttonOk.setOnClickListener(v -> {
             Intent intentMyStyle = new Intent(SecondActivity.this, MainActivity.class);
             intentMyStyle.putExtra(STYLE, myStyle);
+            setResult(RESULT_OK, intentMyStyle);
             finish();
         });
         buttonDay.setOnClickListener(v -> myStyle = 1);

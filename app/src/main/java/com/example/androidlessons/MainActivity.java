@@ -4,13 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-//Я - заглушка, не надо меня пока смотреть. Планирую превратиться в ДЗ до четверга включительно.
+//Основное ДЗ выполнено, попробую дополнительное в пт-сб.
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, Memory {
     private TextView textView;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Calculations calculations;
     private static final String SAVE = "SAVE";
     private static final int REQUEST_CODE = 12;
-    private int myStyle = 5;
+    private static int myStyle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +27,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //да, здесь можно поменять тему
 
         if(savedInstanceState != null) {
-            myStyle = getIntent().getExtras().getInt(STYLE);
             switch (myStyle){
                 case 1:
                     setTheme(R.style.DayButtons);
+                    break;
                 case 2:
                     setTheme(R.style.NightButtons);
+                    break;
+//                case 0: //проверено, что так можно сменить тему, и активити пересоздается
+                   // setTheme(R.style.DayButtons);
             }
         }
 
@@ -219,5 +223,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onRestoreInstanceState(savedInstanceState);
         calculations = (Calculations) savedInstanceState.getSerializable(SAVE);
         textView.setHint(String.format(String.valueOf(calculations.getLastNumber())));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != REQUEST_CODE) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
+        if (resultCode == Activity.RESULT_OK) {
+            if(data != null){
+                Bundle myData = data.getExtras();
+                myStyle = myData.getInt(STYLE);
+                recreate();
+            }
+        }
     }
 }
