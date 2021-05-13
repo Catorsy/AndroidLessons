@@ -2,7 +2,6 @@ package com.example.androidlessons;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setNumber1andClear();
             } catch (NumberFormatException e) {
                 clearField();
-                textView.setHint(R.string.Error);
+                textView.setHint(R.string.error);
             }
             textView.setHint(calculations.getNumber1() + "-");
         });
@@ -112,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setNumber1andClear();
             } catch (NumberFormatException e) {
                 clearField();
-                textView.setHint(R.string.Error);
+                textView.setHint(R.string.error);
             }
             textView.setHint(calculations.getNumber1() + "*");
         });
@@ -123,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setNumber1andClear();
             } catch (NumberFormatException e) {
                 clearField();
-                textView.setHint(R.string.Error);
+                textView.setHint(R.string.error);
             }
             textView.setHint(calculations.getNumber1() + ":");
         });
@@ -161,10 +160,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textView.setHint(R.string.tooEarly);
             } catch (NumberFormatException e) {
                 clearField();
-                textView.setHint(R.string.Error);
+                textView.setHint(R.string.error);
             } catch (ArithmeticException e) {
                 clearField();
-                textView.setHint(R.string.Dividir);
+                textView.setHint(R.string.dividir);
             }
 
         });
@@ -188,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setNumber1andClear();
         } catch (NumberFormatException e) {
             clearField();
-            textView.setHint(R.string.Error);
+            textView.setHint(R.string.error);
         }
         textView.setHint(calculations.getNumber1() + "+");
     }
