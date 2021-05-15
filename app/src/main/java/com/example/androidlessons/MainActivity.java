@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-//Основное ДЗ выполнено, попробую дополнительное в пт-сб.
+//Всё дз выполнено, ссылка на второе приложение в комментарии.
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, Memory {
     private TextView textView;
