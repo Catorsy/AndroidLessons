@@ -38,4 +38,17 @@
         <item name="android:textSize">@dimen/textSize</item>
     </style>
 
+    <style name="DayButtons" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:backgroundTint">#80EDDF5D</item>
+        <item name="android:fontFamily">@string/typeOfFont</item>
+        <item name="android:textColor">@color/redBright</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NightButtons" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:backgroundTint">#805DDBE3</item>
+        <item name="android:fontFamily">@string/typeOfFont</item>
+        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

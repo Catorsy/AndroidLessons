@@ -20,7 +20,12 @@
     <string name="C">C</string>
     <string name="back">Back</string>
     <string name="writeYourNumber">Введите число</string>
-    <string name="Dividir">Дурак, что ли, на ноль делить?</string>
+    <string name="dividir">Дурак, что ли, на ноль делить?</string>
     <string name="tooEarly">Рано нажимать равно. Введите два числа.</string>
-    <string name="Error">Ошибка. Попробуйте ещё раз.</string>
+    <string name="error">Ошибка. Попробуйте ещё раз.</string>
+    <string name="changeStyle">Сменить стиль</string>
+    <string name="dayTheme">Дневная тема</string>
+    <string name="nightTheme">Ночная тема</string>
+    <string name="ok">Применить</string>
+    <string name="defaultStyle">Стиль по умолчанию</string>
 </resources>

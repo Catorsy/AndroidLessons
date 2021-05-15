@@ -3,20 +3,39 @@ package com.example.androidlessons;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-//Я заглушка, не надо меня пока смотреть. Планирую превратиться в ДЗ до четверга включительно.
+//Всё дз выполнено, ссылка на второе приложение в комментарии.
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, Memory {
     private TextView textView;
     private Calculations calculations;
     private static final String SAVE = "SAVE";
+    private static final int REQUEST_CODE = 12;
+    private static int myStyle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTheme(R.style.Theme_Design_NoActionBar);
+        if (savedInstanceState != null) {
+            switch (myStyle) {
+                case 1:
+                    setTheme(R.style.DayButtons);
+                    break;
+                case 2:
+                    setTheme(R.style.NightButtons);
+                    break;
+                case 3:
+                    setTheme(R.style.Theme_AndroidLessons);
+                    setTheme(R.style.Theme_Design_NoActionBar);
+            }
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
@@ -44,13 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonEquals = findViewById(R.id.buttonEquals);
         Button buttonMulti = findViewById(R.id.buttonMulti);
         Button buttonDiv = findViewById(R.id.buttonDiv);
+        Button changeStyle = findViewById(R.id.buttonChange);
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView.setText(textView.getText() + "2");
-            }
-        });
+        button2.setOnClickListener(v -> textView.setText(textView.getText() + "2"));
         button3.setOnClickListener(v -> textView.setText(textView.getText() + "3"));
         button4.setOnClickListener(v -> textView.setText(textView.getText() + "4"));
         button5.setOnClickListener(v -> textView.setText(textView.getText() + "5"));
@@ -85,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setNumber1andClear();
             } catch (NumberFormatException e) {
                 clearField();
-                textView.setHint(R.string.Error);
+                textView.setHint(R.string.error);
             }
             textView.setHint(calculations.getNumber1() + "-");
         });
@@ -96,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setNumber1andClear();
             } catch (NumberFormatException e) {
                 clearField();
-                textView.setHint(R.string.Error);
+                textView.setHint(R.string.error);
             }
             textView.setHint(calculations.getNumber1() + "*");
         });
@@ -107,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setNumber1andClear();
             } catch (NumberFormatException e) {
                 clearField();
-                textView.setHint(R.string.Error);
+                textView.setHint(R.string.error);
             }
             textView.setHint(calculations.getNumber1() + ":");
         });
@@ -135,20 +150,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case ":":
                         calculations.setNumber2(Integer.parseInt(String.valueOf(textView.getText())));
-                        try {
-                            calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
-                            textView.setText(String.format(String.valueOf(calculations.getResult())));
-                            calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
-                            break;
-                        } catch (ArithmeticException e) {
-                            clearField();
-                            textView.setHint(R.string.Dividir);
-                        }
+                        calculations.setResult(calculations.getNumber1() / calculations.getNumber2());
+                        textView.setText(String.format(String.valueOf(calculations.getResult())));
+                        calculations.setLastNumber(Integer.parseInt(String.valueOf(textView.getText())));
+                        break;
                 }
-            } catch (NullPointerException | NumberFormatException e) {
+            } catch (NullPointerException e) {
                 clearField();
                 textView.setHint(R.string.tooEarly);
+            } catch (NumberFormatException e) {
+                clearField();
+                textView.setHint(R.string.error);
+            } catch (ArithmeticException e) {
+                clearField();
+                textView.setHint(R.string.dividir);
             }
+
+        });
+
+        changeStyle.setOnClickListener(v -> {
+            Intent intentRunChangeStyle = new Intent(this, SecondActivity.class);
+            startActivityForResult(intentRunChangeStyle, REQUEST_CODE);
         });
     }
 
@@ -165,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setNumber1andClear();
         } catch (NumberFormatException e) {
             clearField();
-            textView.setHint(R.string.Error);
+            textView.setHint(R.string.error);
         }
         textView.setHint(calculations.getNumber1() + "+");
     }
@@ -191,5 +213,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onRestoreInstanceState(savedInstanceState);
         calculations = (Calculations) savedInstanceState.getSerializable(SAVE);
         textView.setHint(String.format(String.valueOf(calculations.getLastNumber())));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != REQUEST_CODE) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
+        if (resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                Bundle myData = data.getExtras();
+                myStyle = myData.getInt(STYLE);
+                recreate();
+            }
+        }
     }
 }

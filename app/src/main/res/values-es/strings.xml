@@ -21,7 +21,12 @@
     <string name="C">C</string>
     <string name="back">Borrar</string>
     <string name="writeYourNumber">Introduzca el número</string>
-    <string name="Dividir">¿Eres un tonto? Es prohibido dividir por cero.</string>
+    <string name="dividir">¿Eres un tonto? Es prohibido dividir por cero.</string>
     <string name="tooEarly">Es muy temprano presionar "result". Introduzca dos numeros.</string>
-    <string name="Error">Error. Intentar otra vez.</string>
+    <string name="error">Error. Intentar otra vez.</string>
+    <string name="changeStyle">Cambiar estilo</string>
+    <string name="dayTheme">Estilo del dia</string>
+    <string name="nightTheme">Estilo de noche</string>
+    <string name="ok">Confirmar</string>
+    <string name="defaultStyle">Estilo por defecto</string>
 </resources>
